@@ -15,8 +15,37 @@ Interpret the output of the tools to understand the disk structure, including pa
 ## PROGRAM:
 Sleuth Kit Disk Analysis Commands
 
+✅ Option 1: Create a Sample Disk Image (for Testing)
+
+Let’s create a 10MB blank disk image and simulate file system activity:
+
+```bash
+cd ~/Downloads
+
+# Step 1: Create an empty disk image
+dd if=/dev/zero of=disk.dd bs=1M count=10
+
+# Step 2: Format it with a file system (like FAT32)
+mkfs.vfat disk.dd
+```
+
 ## OUTPUT:
-Disk Structure Analysis Results
+### Create Disk
+![exp2 1](https://github.com/user-attachments/assets/c55e6f18-d3ec-4e49-beaf-91810d8c5a9a)
+
+### mmls 
+```bash
+mmls disk.dd
+```
+### fls
+```bash
+fls -f fat -o 0 disk.dd
+```
+![exp 2 2](https://github.com/user-attachments/assets/0b4d10c8-b589-4392-9339-d899458c7bdf)
+
+
+![exp 2 3](https://github.com/user-attachments/assets/af05981d-69e7-4ff9-8ebe-ff029fa157e8)
+
 
 ## RESULT:
 The analysis was performed successfully using Sleuth Kit, and the disk structure was understood in detail.
